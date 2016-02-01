@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Mystery Game
+    </title>
+    <script src="mystery.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+
+        body {
+            background-color: #7FBC86;
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #container {
+            box-shadow: 0px 0px 10px black;
+        }
+
+    </style>
+    <script>  
+
+        var game = null;
+
+        window.addEventListener("load", function ()
+        {
+            var container = document.getElementById("container");
+            var classes = [[2, 1, 0, 1, 1, 3],
+                           [1, 1, 0, 1, 1, 1],
+                           [1, 1, 1, 1, 1, 1],
+                           [1, 1, 1, 1, 1, 1],
+                           [1, 0, 1, 1, 0, 0],
+                           [4, 0, 1, 1, 1, 5]];
+            var player = [2, 2];
+            var object = [0, 0];
+            
+            game = new MysteryGame(container, classes, player, object);
+        });
+
+    </script>
+</head>
+<body>
+    <h1>
+        Mystery Game
+    </h1>
+    <div id="container"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+
+.mystery rect, .mystery circle {
+    stroke: black;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.mystery circle {
+    stroke: black;
+}
+
+.mystery text {
+	fill: green;
+	font-size: 100px;
+	alignment-baseline: middle;
+	text-anchor: middle;
+}
+
+.mystery .c0 {
+    fill: black;
+}
+
+.mystery .c1 {
+    fill: white;
+}
+
+.mystery .c2 {
+    fill: red;
+}
+
+.mystery .c3 {
+    fill: green;
+}
+
+.mystery .c4 {
+    fill: yellow;
+}
+
+.mystery .c5 {
+    fill: blue;
+}
