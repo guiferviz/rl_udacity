@@ -213,7 +213,8 @@ MysteryGame.prototype.doAction = function (charCode)
 		else if (actionName == "catch")
 		{
 			if (this.player.wx == this.obj.wx &&
-				this.player.wy == this.obj.wy)
+				this.player.wy == this.obj.wy &&
+                !this.catched)
 			{
                 this.showText(this.goodtext);
 				this.catched = true;
