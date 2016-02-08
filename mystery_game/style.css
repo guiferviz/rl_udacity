@@ -16,6 +16,11 @@
 	font-size: 100px;
 	alignment-baseline: middle;
 	text-anchor: middle;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    opacity: 1;
 }
 
 .mystery .c0 {
@@ -40,4 +45,12 @@
 
 .mystery .c5 {
     fill: blue;
+}
+
+.mystery .hide {
+    opacity: 0;
+}
+
+.mystery .bad {
+    fill: red;
 }

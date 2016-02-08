@@ -62,12 +62,17 @@ MysteryGame = function (container, map, player, circle, actions)
     this.catched = false;
     this.actions = actions || ["up", "down", "left", "right",
     		"catch", "release"];
-    if (actions)
+    if (!actions)
         this.shuffle(this.actions);
 
     this.map = this.createMap(map);
     this.player = this.createPlayer(player);
     this.obj = this.createObject(circle);
+    this.goodtext = this.createText(this.w / 2, this.h / 2, "+1");
+    this.goodtext.classList.add("hide");
+    this.badtext = this.createText(this.w / 2, this.h / 2, "-1");
+    this.badtext.classList.add("hide");
+    this.badtext.classList.add("bad");
 
     container.innerHTML = "";  // Deletes all in container
     container.appendChild(this.svg);
@@ -176,6 +181,12 @@ MysteryGame.prototype.createObject = function (origin)
     return obj;
 };
 
+MysteryGame.prototype.showText = function (domText)
+{
+    domText.classList.remove("hide");
+    setTimeout(function () { domText.classList.add("hide"); }, 1500);
+};
+
 MysteryGame.prototype.doAction = function (charCode)
 {
     var action = charCode - '1'.charCodeAt(0);
@@ -204,6 +215,7 @@ MysteryGame.prototype.doAction = function (charCode)
 			if (this.player.wx == this.obj.wx &&
 				this.player.wy == this.obj.wy)
 			{
+                this.showText(this.goodtext);
 				this.catched = true;
 			}
 		}
@@ -216,6 +228,10 @@ MysteryGame.prototype.doAction = function (charCode)
 				{
 					this.createText(this.w / 2, this.h / 2, "You Win :)");
 				}
+                else
+                {
+                    this.showText(this.badtext);
+                }
 			}
 		}
 
@@ -241,6 +257,13 @@ MysteryGame.prototype.doAction = function (charCode)
                         this.obj.wx * this.size_x + this.size_x * 0.5);
 				this.obj.setAttribute('cy',
                         this.obj.wy * this.size_y + this.size_y * 0.5);
+
+                if (this.map[this.obj.wy][this.obj.wx].color == this.endColor
+                    && !this.firstTimeIn)
+                {
+                    this.firstTimeIn = true;
+                    this.showText(this.goodtext);
+                }
 			}
 		}
 	}

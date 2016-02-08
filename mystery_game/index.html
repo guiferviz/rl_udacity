@@ -10,7 +10,7 @@
 
         body {
             background-color: #7FBC86;
-            width: 300px;
+            width: 600px;
             margin: 0 auto;
             text-align: center;
         }
@@ -34,9 +34,10 @@
                            [1, 0, 1, 1, 0, 0],
                            [4, 0, 1, 1, 1, 5]];
             var player = [2, 2];
-            var object = [0, 0];
+            var object = [5, 3];
+            var actions = ["up", "left", "right", "release", "down", "catch"];
             
-            game = new MysteryGame(container, classes, player, object);
+            game = new MysteryGame(container, classes, player, object, actions);
         });
 
     </script>
